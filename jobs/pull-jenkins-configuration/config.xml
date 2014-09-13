@@ -15,6 +15,10 @@
     <hudson.tasks.Shell>
       <command>cd ${JENKINS_HOME}
 git pull origin master
+
+# New jobs are not automatically loaded, so I have to restart jenkins somehow
+# sudo service jenkins restart
+wget ${JENKINS_URL}/safeRestart
 </command>
     </hudson.tasks.Shell>
   </builders>
