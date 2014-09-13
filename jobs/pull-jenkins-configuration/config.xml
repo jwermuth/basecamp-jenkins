@@ -16,8 +16,11 @@ It would be nice to do this, but it requires that the external repo can reach th
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers>
     <hudson.triggers.TimerTrigger>
-      <spec># Every 1 minute while developing
-H/1 * * * *</spec>
+      <spec># When developing poll every minute
+* * * * *
+
+# When done developing, poll every 15 minutes
+#H/15 * * * *</spec>
     </hudson.triggers.TimerTrigger>
     <hudson.triggers.SCMTrigger>
       <spec></spec>
@@ -28,7 +31,18 @@ H/1 * * * *</spec>
   <builders>
     <hudson.tasks.Shell>
       <command>cd ${JENKINS_HOME}
-git pull origin master</command>
+if git checkout master &amp;&amp;
+    git fetch origin master &amp;&amp;
+    [ `git rev-list HEAD...origin/master --count` != 0 ] &amp;&amp;
+    git merge origin/master
+then
+    echo &apos;Updated!&apos;
+else
+    echo &apos;Not updated.&apos;
+    # Signals FAILURE
+    exit 1
+fi
+</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
