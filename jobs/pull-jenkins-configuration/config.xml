@@ -2,7 +2,11 @@
 <project>
   <actions/>
   <description>After pulling a configuration, Jenkins has to read the new configuration. It is not enough to re-read the old jobs, since new jobs may have arrived or old jobs removed. For this reason Jenkins has to restarted to re-read its configuration. &#xd;
-TODO I think this will kill all running jobs, which is not good.</description>
+TODO I think this will kill all running jobs, which is not good.&#xd;
+&#xd;
+Pushing changes in jenkins configuration from the central repository&#xd;
+====================================================&#xd;
+It would be nice to do this, but it requires that the external repo can reach this machine. Since this machine will run as guest inside some host, and we do not control this host, it is not possible to automatically configure this. Therefore the updating of the configuration will be a periodical pull</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.scm.NullSCM"/>
@@ -10,7 +14,16 @@ TODO I think this will kill all running jobs, which is not good.</description>
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers/>
+  <triggers>
+    <hudson.triggers.TimerTrigger>
+      <spec># Every 1 minute while developing
+H/1 * * * *</spec>
+    </hudson.triggers.TimerTrigger>
+    <hudson.triggers.SCMTrigger>
+      <spec></spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
