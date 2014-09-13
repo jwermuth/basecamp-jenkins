@@ -1,4 +1,4 @@
 basecamp-jenkins
 ================
 
-Configuration for shared, local Jenkins instance.
+Configuration for shared, local Jenkins instance..
