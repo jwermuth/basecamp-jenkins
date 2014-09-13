@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description></description>
+  <description>After pulling a configuration, Jenkins has to read the new configuration. It is not enough to re-read the old jobs, since new jobs may have arrived or old jobs removed. For this reason Jenkins has to restarted to re-read its configuration. &#xd;
+TODO I think this will kill all running jobs, which is not good.</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.scm.NullSCM"/>
@@ -14,12 +15,7 @@
   <builders>
     <hudson.tasks.Shell>
       <command>cd ${JENKINS_HOME}
-git pull origin master
-
-# New jobs are not automatically loaded, so I have to restart jenkins somehow
-# sudo service jenkins restart
-wget ${JENKINS_URL}/safeRestart
-</command>
+git pull origin master</command>
     </hudson.tasks.Shell>
   </builders>
   <publishers/>
