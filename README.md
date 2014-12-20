@@ -1,4 +1,4 @@
 basecamp-jenkins
 ================
 
-Configuration for shared, local Jenkins instance..
+This repository contains the parts of a local Jenkins install that are under version control
