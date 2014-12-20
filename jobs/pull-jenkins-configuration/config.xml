@@ -31,15 +31,18 @@ It would be nice to do this, but it requires that the external repo can reach th
   <builders>
     <hudson.tasks.Shell>
       <command>cd ${JENKINS_HOME}
+echo &apos;Checking git to see if central configuration has changed.&apos;
 if git checkout master &amp;&amp;
     git fetch origin master &amp;&amp;
     [ `git rev-list HEAD...origin/master --count` != 0 ] &amp;&amp;
     git merge origin/master
 then
-    echo &apos;Updated!&apos;
+    # Signals SUCCESS so Jenkins can be restarted. If I restart Jenkins 
+    # from here, the status of the job will not be saved.
+    echo &apos;Central configuration updated! Jenkins needs to be re-started to reflect changes&apos;
 else
-    echo &apos;Not updated.&apos;
-    # Signals FAILURE
+    echo &apos;Central configuration not updated, doing nothing. Sending FAILURE signal so other Jenkins jobs are aware of this&apos;
+    # Signals FAILURE, this is OK
     exit 1
 fi
 </command>
