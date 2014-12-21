@@ -1,5 +1,5 @@
-basecamp-jenkins
-================
+#Basecamp-jenkins
+
 
 Configuration for shared, local Jenkins instance..
 
@@ -39,4 +39,18 @@ e.g.
 
     [remote "origin"]
 	url = git@github.com:jwermuth/basecamp-vagrant.git
+
+
+
+#User Stories
+
+A simple way of keeping track of whats implemented and whats not
+
+## Implemented
+
+* As an Administrator I want to change Jenkins configuration and have those changes pushed to all clients 
+
+##Backlog
+
+* As a Developer I want to synchronize my configuration with the central repository without killing running Jobs
 
