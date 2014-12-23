@@ -17,10 +17,10 @@ It would be nice to do this, but it requires that the external repo can reach th
   <triggers>
     <hudson.triggers.TimerTrigger>
       <spec># When developing poll every minute
-* * * * *
+#* * * * *
 
 # When done developing, poll every 15 minutes
-#H/15 * * * *</spec>
+H/15 * * * *</spec>
     </hudson.triggers.TimerTrigger>
     <hudson.triggers.SCMTrigger>
       <spec></spec>
