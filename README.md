@@ -23,7 +23,7 @@ If you want to use eclipse to edit the files, you can run
     
     ./gradlew eclipse
     
-and import the newly created project into eclipse
+and import the newly created project into eclipse.
 
 ## Using ssh
 
