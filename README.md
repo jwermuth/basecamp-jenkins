@@ -48,7 +48,8 @@ A simple way of keeping track of whats implemented and whats not
 
 ## Implemented
 
-* As an Administrator I want to change Jenkins configuration and have those changes pushed to all clients 
+* As an Administrator I want to change Jenkins configuration and have those changes pushed to all clients
+* As a Developer I want to version control my CI so I can recreate my CI system
 
 ##Backlog
 
