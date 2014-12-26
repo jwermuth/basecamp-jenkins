@@ -1,57 +1,81 @@
-?xml version='1.0' encoding='UTF-8'?>
+<?xml version='1.0' encoding='UTF-8'?>
 <project>
-  <actions/>
-  <description>This jobs keeps the configuration of this Jenkins in sync with the configuration in git.&#xd;
-This allows several developers to share one configuration controlled from one repository.&#xd;
-&#xd;
-After pulling a configuration, Jenkins has to read the new configuration. It is not enough to re-read the old jobs, since new jobs may have arrived or old jobs removed$
-&#xd;
-Restarting:&#xd;
-A restart will kill all running jobs, which is not what you want. A mechanism to postpone restarts untill no jobs are running could/should be implemented.&#xd;
-&#xd;
-Push vs. pull:&#xd;
-It would be nice to pull changes instead of pulling. This requires that the external repo can reach this machine. Since this machine will run as guest inside some host$
-  <keepDependencies>false</keepDependencies>
-  <properties/>
-  <scm class="hudson.scm.NullSCM"/>
-  <canRoam>true</canRoam>
-  <disabled>false</disabled>
-  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
-  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers>
-    <hudson.triggers.TimerTrigger>
-      <spec># When developing poll every minute
-#* * * * *
+	<actions />
+	<description>
+		This jobs keeps the configuration of this Jenkins in sync
+		with the
+		configuration in git.&#xd;
+		This allows several developers to
+		share one configuration controlled from
+		one repository.&#xd;
+		&#xd;
+		After
+		pulling a configuration, Jenkins has to read the new configuration.
+		It
+		is not enough to re-read the old jobs, since new jobs may have
+		arrived
+		or old jobs removed$
+		&#xd;
+		Restarting:&#xd;
+		A restart will kill all
+		running jobs, which is not what you want. A
+		mechanism to postpone
+		restarts untill no jobs are running could/should
+		be implemented.&#xd;
+		&#xd;
+		Push vs. pull:&#xd;
+		It would be nice to pull changes instead of
+		pulling. This requires that
+		the external repo can reach this machine.
+		Since this machine will run
+		as guest inside some host
+	</description>
+	<keepDependencies>false</keepDependencies>
+	<properties />
+	<scm class="hudson.scm.NullSCM" />
+	<canRoam>true</canRoam>
+	<disabled>false</disabled>
+	<blockBuildWhenDownstreamBuilding>false
+	</blockBuildWhenDownstreamBuilding>
+	<blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+	<triggers>
+		<hudson.triggers.TimerTrigger>
+			<spec># When developing poll every minute
+				#* * * * *
 
-# When done developing, poll every 15 minutes
-H/15 * * * *</spec>
-    </hudson.triggers.TimerTrigger>
-    <hudson.triggers.SCMTrigger>
-      <spec></spec>
-      <ignorePostCommitHooks>false</ignorePostCommitHooks>
-    </hudson.triggers.SCMTrigger>
-  </triggers>
-  <concurrentBuild>false</concurrentBuild>
-  <builders>
-    <hudson.tasks.Shell>
-      <command>cd ${JENKINS_HOME}
-echo &apos;Checking git to see if central configuration has changed.&apos;
-if git checkout master &amp;&amp;
-    git fetch origin master &amp;&amp;
-    [ `git rev-list HEAD...origin/master --count` != 0 ] &amp;&amp;
-    git merge origin/master
-then
-    # Signals SUCCESS so Jenkins can be restarted. If I restart Jenkins
-    # from here, the status of the job will not be saved.
-    echo &apos;Central configuration updated! Jenkins needs to be re-started to reflect changes&apos;
-else
-    echo &apos;Central configuration not updated, doing nothing. Sending FAILURE signal so other Jenkins jobs are aware of this&apos;
-    # Signals FAILURE, this is OK
-    exit 1
-fi
-</command>
-    </hudson.tasks.Shell>
-  </builders>
-  <publishers/>
-  <buildWrappers/>
+				# When done developing, poll every 15 minutes
+				H/15 * * * *
+			</spec>
+		</hudson.triggers.TimerTrigger>
+		<hudson.triggers.SCMTrigger>
+			<spec></spec>
+			<ignorePostCommitHooks>false</ignorePostCommitHooks>
+		</hudson.triggers.SCMTrigger>
+	</triggers>
+	<concurrentBuild>false</concurrentBuild>
+	<builders>
+		<hudson.tasks.Shell>
+			<command>cd ${JENKINS_HOME}
+				echo &apos;Checking git to see if central configuration has
+				changed.&apos;
+				if git checkout master &amp;&amp;
+				git fetch origin master &amp;&amp;
+				[ `git rev-list HEAD...origin/master --count` != 0 ] &amp;&amp;
+				git merge origin/master
+				then
+				# Signals SUCCESS so Jenkins can be restarted. If I restart Jenkins
+				# from here, the status of the job will not be saved.
+				echo &apos;Central configuration updated! Jenkins needs to be
+				re-started to reflect changes&apos;
+				else
+				echo &apos;Central configuration not updated, doing nothing. Sending
+				FAILURE signal so other Jenkins jobs are aware of this&apos;
+				# Signals FAILURE, this is OK
+				exit 1
+				fi
+			</command>
+		</hudson.tasks.Shell>
+	</builders>
+	<publishers />
+	<buildWrappers />
 </project>
