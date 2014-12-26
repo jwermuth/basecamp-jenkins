@@ -2,33 +2,19 @@
 <project>
 	<actions />
 	<description>
-		This jobs keeps the configuration of this Jenkins in sync
-		with the
-		configuration in git.&#xd;
-		This allows several developers to
-		share one configuration controlled from
-		one repository.&#xd;
+		This jobs keeps the configuration of this Jenkins in sync with the configuration in git.&#xd;
+		This allows several developers to share one configuration controlled from one repository.&#xd;
 		&#xd;
-		After
-		pulling a configuration, Jenkins has to read the new configuration.
-		It
-		is not enough to re-read the old jobs, since new jobs may have
-		arrived
-		or old jobs removed$
+		After pulling a configuration, Jenkins has to read the new configuration.
+		It is not enough to re-read the old jobs, since new jobs may have
+		arrived or old jobs removed
 		&#xd;
-		Restarting:&#xd;
-		A restart will kill all
-		running jobs, which is not what you want. A
-		mechanism to postpone
-		restarts untill no jobs are running could/should
-		be implemented.&#xd;
+		Restarting:&#xd; 
+		A restart will kill all running jobs, which is not what you want. A mechanism to postpone restarts untill no jobs are running could/should be implemented.&#xd;
 		&#xd;
 		Push vs. pull:&#xd;
-		It would be nice to pull changes instead of
-		pulling. This requires that
-		the external repo can reach this machine.
-		Since this machine will run
-		as guest inside some host
+		It would be nice to pull changes instead of pulling. This requires that the external repo can reach this machine.
+		Since this machine will run as guest inside some host
 	</description>
 	<keepDependencies>false</keepDependencies>
 	<properties />
