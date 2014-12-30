@@ -9,6 +9,7 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <url>https://github.com/jwermuth/basecamp-java.git</url>
+        <credentialsId>7b21237b-4667-4733-bb5e-4116b96eb6d6</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
@@ -34,7 +35,11 @@
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers/>
   <concurrentBuild>false</concurrentBuild>
-  <builders/>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>gradle test</command>
+    </hudson.tasks.Shell>
+  </builders>
   <publishers>
     <hudson.plugins.git.GitPublisher plugin="git@2.3.2">
       <configVersion>2</configVersion>
@@ -42,6 +47,11 @@
       <pushOnlyIfSuccess>true</pushOnlyIfSuccess>
       <forcePush>false</forcePush>
     </hudson.plugins.git.GitPublisher>
+    <hudson.tasks.Mailer plugin="mailer@1.11">
+      <recipients></recipients>
+      <dontNotifyEveryUnstableBuild>true</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>true</sendToIndividuals>
+    </hudson.tasks.Mailer>
   </publishers>
   <buildWrappers/>
 </project>
