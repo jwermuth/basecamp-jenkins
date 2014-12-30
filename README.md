@@ -1,6 +1,23 @@
 #Basecamp-jenkins
 
 
+## Setting up mail
+
+Once your jenkins is up and running:
+
+Go to localhost:8080/configure. Fill out
+    'System Admin e-mail address' under Jenkins Location
+    The fields under the 'E-mail Notification' section
+        To use your own gmail account (only works with 2-factor authentication), under the 'E-mail Notification' section:
+            SMTP server: smtp.gmail.com
+            Click 'Advanced'
+            Check 'Use SMTP Authentication'
+            User Name: your gmail username
+            Password: your gmail password (application-specific if you use 2-factor authentication)
+            Check 'Use SSL'
+            add '465' to the text box labelled 'SMTP Port'
+
+
 Configuration for shared, local Jenkins instance..
 
 ## Reverse git strategy
