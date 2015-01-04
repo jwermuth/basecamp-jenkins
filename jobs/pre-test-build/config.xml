@@ -9,12 +9,12 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <url>https://github.com/jwermuth/basecamp-java.git</url>
-        <credentialsId>7b21237b-4667-4733-bb5e-4116b96eb6d6</credentialsId>
+        <credentialsId>62f3f182-3a4d-4efe-bbc3-f5e7c9166975</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>**</name>
+        <name>origin/jwermuth</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -23,7 +23,7 @@
       <hudson.plugins.git.extensions.impl.PreBuildMerge>
         <options>
           <mergeRemote>origin</mergeRemote>
-          <mergeTarget>master</mergeTarget>
+          <mergeTarget>integration</mergeTarget>
           <mergeStrategy>default</mergeStrategy>
         </options>
       </hudson.plugins.git.extensions.impl.PreBuildMerge>
@@ -33,12 +33,7 @@
   <disabled>false</disabled>
   <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
-  <triggers>
-    <hudson.triggers.SCMTrigger>
-      <spec>H/2 * * * *</spec>
-      <ignorePostCommitHooks>false</ignorePostCommitHooks>
-    </hudson.triggers.SCMTrigger>
-  </triggers>
+  <triggers/>
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.Shell>
