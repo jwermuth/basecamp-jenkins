@@ -1,0 +1,12 @@
+# Ignore everything
+*
+# Don't ignore directories, so we can recurse into them
+!*/
+# Ignore workspace dir
+*/workspace/
+# Don't ignore .gitignore and *.foo files
+!.gitignore
+!config.xml
+
+
+
