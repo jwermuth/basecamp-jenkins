@@ -1,1 +1,10 @@
-*
+*.xml
+*.log
+secrets/
+updates/
+userContent/
+secret.key
+secret.key.not-so-secret
+queue.xml.bak
+.*
+identity.key.enc
