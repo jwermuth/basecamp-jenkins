@@ -1,4 +1,4 @@
-*.xml
+/*.xml
 *.log
 secrets/
 updates/
@@ -8,3 +8,4 @@ secret.key.not-so-secret
 queue.xml.bak
 .*
 identity.key.enc
+users/
