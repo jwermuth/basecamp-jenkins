@@ -9,12 +9,11 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <url>https://github.com/jwermuth/basecamp-java.git</url>
-        <credentialsId>62f3f182-3a4d-4efe-bbc3-f5e7c9166975</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>origin/boel</name>
+        <name>origin/${DEVELOPER_ID}</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
