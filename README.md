@@ -7,7 +7,8 @@ Once your jenkins is up and running:
 
 ### Configure github
 
-In the pre-test-commit job, add you github credentials
+Go to http://localhost:8080/job/pre-test-build/configure
+    In the pre-test-commit job, add you github credentials 
 
 ### Configure mail 
 
