@@ -1,9 +1,15 @@
 #Basecamp-jenkins
 
 
-## Setting up mail
+## Setting up your local Jenkins instance
 
 Once your jenkins is up and running:
+
+### Configure github
+
+In the pre-test-commit job, add you github credentials
+
+### Configure mail 
 
 * Go to localhost:8080/configure. 
 * Fill out
