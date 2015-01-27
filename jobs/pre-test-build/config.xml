@@ -1,7 +1,28 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <project>
   <actions/>
-  <description></description>
+  <description>To set up this job on your local machine&#xd;
+&#xd;
+1 Configure github&#xd;
+&#xd;
+Go to http://localhost:8080/job/pre-test-build/configure&#xd;
+    In the pre-test-commit job, add you github credentials&#xd;
+&#xd;
+2 Configure mail&#xd;
+&#xd;
+Go to localhost:8080/configure.&#xd;
+    Fill out&#xd;
+        &apos;System Admin e-mail address&apos; under Jenkins Location&#xd;
+        The fields under the &apos;E-mail Notification&apos; section&#xd;
+        To use your own gmail account (only works with 2-factor authentication), under the &apos;E-mail Notification&apos; section:&#xd;
+            SMTP server: smtp.gmail.com&#xd;
+            Click &apos;Advanced&apos;&#xd;
+            Check &apos;Use SMTP Authentication&apos;&#xd;
+            User Name: your gmail username&#xd;
+            Password: your gmail password (application-specific if you use 2-factor authentication)&#xd;
+            Check &apos;Use SSL&apos;&#xd;
+            add &apos;465&apos; to the text box labelled &apos;SMTP Port&apos;&#xd;
+</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
   <scm class="hudson.plugins.git.GitSCM" plugin="git@2.3.2">
