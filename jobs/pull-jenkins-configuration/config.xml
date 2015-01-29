@@ -14,7 +14,7 @@ A restart will kill all running jobs, which is not what you want. A mechanism to
 		&#xd;
 Push vs. pull:&#xd;
 It would be nice to pull changes instead of pulling. This requires that the external repo can reach this machine.&#xd;
-Since this machine will run as guest inside some host&#xd;
+Since this machine will run as guest inside some host.&#xd;
 	</description>
   <keepDependencies>false</keepDependencies>
   <properties/>
